@@ -1,0 +1,1271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HEVN - Himachal EV Network</title>
+    <style>
+        :root {
+            --primary: #0066cc;
+            --secondary: #11e218;
+            --dark: #333;
+            --light: #f9f9f9;
+            --accent: #FF9800;
+            --gradient: linear-gradient(rgba(187, 187, 187, 0.7), rgba(236, 213, 213, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: linear-gradient(rgba(187, 187, 187, 0.7), rgba(236, 213, 213, 0.7)), url('/api/placeholder/1200/600') center/cover no-repeat;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            color: white;
+        }
+        
+        .logo span {
+            color: var(--secondary);
+            font-style: italic;
+        }
+        .logo a {
+            text-decoration: none;
+            color: white;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            
+            display: flex;
+            align-items: center;
+            color: rgb(105, 1, 1);
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            transform: translate(-50%, -10%);
+            text-align: center;
+            color: rgb(124, 7, 7);
+            z-index: 100;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .btn {
+            animation: fadeIn 2s ease-in-out 2s;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1rem 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+        }
+        
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 2rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--accent);
+        }
+        
+        .hero {
+            display: flex;
+            align-items: center;
+            color: white;
+            text-align: center;
+            margin-top: 60px;
+        }
+        
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--secondary);
+            color: white;
+            padding: 0.8rem 1.5rem;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background 0.3s;
+        }
+        
+        .btn:hover {
+            background: #3d8b3d;
+        }
+        
+        section {
+            padding: 5rem 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .about {
+            background-color: white;
+        }
+        
+        .about-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+        
+        .about-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 2rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .about-image img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .problem-cards {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .card {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            flex: 1;
+            min-width: 300px;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .card h3 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .solution {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .solution .section-title h2 {
+            color: white;
+        }
+        
+        .solution-content {
+            text-align: center;
+        }
+        
+        .market {
+            background-color: white;
+        }
+        
+        .market-stats {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .stat-box {
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .business-model {
+            background-color: var(--light);
+        }
+        
+        .model-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .model-item {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .model-icon {
+            font-size: 3rem;
+            color: var(--primary);
+            margin-bottom: 1rem;
+        }
+        
+        .investment {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .investment .section-title h2 {
+            color: white;
+        }
+        
+        .investment-details {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 2rem;
+        }
+        
+        .investment-item {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            text-align: center;
+            flex: 1;
+            min-width: 250px;
+        }
+        
+        .investment-value {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .timeline {
+            background-color: white;
+        }
+        
+        .timeline-container {
+            position: relative;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+        }
+        
+        .timeline-container::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            background-color: var(--primary);
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            margin-left: -3px;
+        }
+        
+        .timeline-item {
+            padding: 10px 40px;
+            position: relative;
+            width: 50%;
+            box-sizing: border-box;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.5s ease-in-out;
+        }
+        
+        .timeline-item::after {
+            content: '';
+            position: absolute;
+            width: 25px;
+            height: 25px;
+            background-color: white;
+            border: 4px solid var(--primary);
+            border-radius: 50%;
+            top: 15px;
+            z-index: 1;
+        }
+        
+        .left {
+            left: 0;
+        }
+        
+        .right {
+            left: 50%;
+        }
+        
+        .left::after {
+            right: -17px;
+        }
+        
+        .right::after {
+            left: -17px;
+        }
+        
+        .timeline-content {
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .timeline-content h3 {
+            color: var (--primary);
+        }
+        
+        .timeline-item.show {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .advantages {
+            background-color: var(--light);
+        }
+        
+        .advantage-list {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .advantage-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1.5rem;
+            background: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .advantage-icon {
+            background-color: var(--primary);
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.5rem;
+            margin-right: 1.5rem;
+        }
+        
+        .competition {
+            background-color: white;
+        }
+        
+        .quadrant {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            height: 500px;
+            margin: 0 auto;
+            border: 2px solid #ddd;
+            border-radius: 10px;
+        }
+        
+        .quadrant-labels {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .x-label-left {
+            position: absolute;
+            left: 10px;
+            bottom: 50%;
+            transform: translateY(50%);
+            font-weight: bold;
+        }
+        
+        .x-label-right {
+            position: absolute;
+            right: 10px;
+            bottom: 50%;
+            transform: translateY(50%);
+            font-weight: bold;
+        }
+        
+        .y-label-top {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+        }
+        
+        .y-label-bottom {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-weight: bold;
+        }
+        
+        .competitor {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .competitor:hover {
+            transform: scale(1.1);
+            z-index: 10;
+        }
+        
+        .hevn {
+            background-color: var(--primary);
+            color: white;
+            top: 100px;
+            right: 150px;
+        }
+        
+        .jio-bp {
+            bottom: 100px;
+            right: 150px;
+        }
+        
+        .statiq {
+            top: 100px;
+            left: 150px;
+        }
+        
+        .charge-zone {
+            top: 20px;
+            left: 200px;
+        }
+        
+        .glida {
+            bottom: 100px;
+            left: 200px;
+        }
+        
+        .electriva {
+            bottom: 50px;
+            left: 100px;
+        }
+        .horizontal-line {
+            position: absolute;
+            width: 4px;
+            height: 100%-14%;
+            background-color: #ddd;
+            transform: rotate(0deg);
+            top: 7%;
+            bottom: 7%;
+            left: 50%;
+            transform-origin: top left;
+        }
+        .vertical-line {
+            position: absolute;
+            width: 3px;
+            height: 100%;
+            background-color: #ddd;
+            transform: rotate(90deg);
+            top: 50%;
+            left: 84%;
+            transform-origin: top left;
+        }
+        .why-invest {
+            background-color: var(--primary);
+            color: white;
+        }
+        
+        .why-invest .section-title h2 {
+            color: white;
+        }
+        
+        .invest-reasons {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .reason {
+            background: rgba(255,255,255,0.1);
+            border-radius: 10px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .contact {
+            background-color: white;
+        }
+        
+        .contact-info {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        
+        .contact-item {
+            margin-bottom: 1rem;
+        }
+        
+        .contact-item a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .timeline-container::after {
+                left: 31px;
+            }
+            
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+            }
+            
+            .timeline-item::after {
+                left: 15px;
+            }
+            
+            .right {
+                left: 0;
+            }
+        }
+
+        @keyframes scrollBackground {
+            0% { background-position: 0 0; }
+            100% { background-position: 100% 0; }
+        }
+
+        
+
+        .scroll-container {
+            background-color: #333;
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px;
+            display: flex;
+            animation: scrollImages 20s linear infinite;
+        }
+
+        .scroll-container img {
+            padding: 10px;
+            height: 400px;
+        }
+
+        @keyframes scrollImages {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .photobanner {
+            height: 233px;
+            width: 100%;
+            display: flex;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .photobanner img {
+            height: 233px;
+            transition: all 0.5s ease;
+        }
+
+        .photobanner img:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+        }
+
+        .photobanner .first {
+            animation: bannermove 30s linear infinite;
+        }
+
+        @keyframes bannermove {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-100%); }
+        }
+
+        .wrapper {
+            overflow: hidden;
+            position: relative;
+            
+        }
+
+        .sliding-background {
+            display: flex;
+            animation: slide 30s linear infinite;
+            
+            z-index: 1;
+        }
+
+        .sliding-background img {
+            height: 560px;
+            transition: all 2s ease;
+        }
+
+        .sliding-background img:hover {
+            transform: scale(1.1);
+            cursor: pointer;
+            box-shadow: 0px 3px 5px rgba(0,0,0,0.2);
+        }
+
+        @keyframes slide {
+            0% {
+                transform: translate3d(0, 0, 0);
+            }
+            100% {
+                transform: translate3d(-100%, 0, 0);
+            }
+        }
+
+        .hero-content {
+            position: absolute;
+            top: 10%;
+            left: 50%;
+            bottom: 20%;
+            text-align: center;
+            color: rgb(253, 246, 246);
+            z-index: 1;
+            animation:fadeIn  2s ease-in-out;
+        }
+
+        .hero-content h2 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+
+        .hero-content p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        .hero-content .btn {
+            position: absolute;
+            bottom: 10%;
+            left: 10%;
+            right: 10%;
+            animation: fadeIn 2s ease-in-out 2s;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; }
+            100% { opacity: 1; }
+        }
+
+        .map-section {
+            padding: 5rem 0;
+            background-color: var(--light);
+        }
+
+        .map-container {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            overflow: hidden;
+            max-width: 100%;
+            background: #f9f9f9;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .map-container iframe {
+            position: absolute;
+            top: -70px; /* Hide top 20 pixels */
+            left: 0;
+            width: 100%;
+            height: calc(100% + 70px); /* Adjust height to compensate for the top translation */
+            border: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <div class="logo"><a href="#header"> H<span>EV</span>N </a></div>
+                <ul class="nav-links">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="#business">Business Model</a></li>
+                    <li><a href="#investment">Investment</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero" id="header">
+        <div class="wrapper">
+            <div class="hero-content">
+                <h2>Powering the Future of 
+                    EV Charging in Himachal Pradesh!
+                    </h2>
+                <a href="#investment" class="btn">Investment Opportunity</a>
+            </div>
+            <div class="sliding-background">
+                <img class="first" src="image-1.jpg" alt="">
+                <img src="./Reference Images HP EV canopy/1.webp" alt="">
+                <img src="./Reference Images HP EV canopy/2.webp" alt="">
+                <img src="./Reference Images HP EV canopy/10.webp" alt="">
+                <img src="./Reference Images HP EV canopy/11.webp" alt="">
+                <img src="./Reference Images HP EV canopy/12.webp" alt="">
+                <img src="./Reference Images HP EV canopy/14.webp" alt="">
+                <img src="./Reference Images HP EV canopy/19.webp" alt="">
+                <img src="./Reference Images HP EV canopy/20.webp" alt="">
+                <img src="./Reference Images HP EV canopy/9.webp" alt="">
+                <img src="./Reference Images HP EV canopy/22.webp" alt="">
+                <img src="./Reference Images HP EV canopy/24.webp" alt="">
+            </div>
+        </div>
+    </section>
+
+    
+    <section class="map-section" id="locations">
+        <div class="container">
+            <div class="section-title">
+                <h2>Corridor Locations</h2>
+            </div>
+            <div class="map-container">
+                <iframe src="https://www.google.com/maps/d/embed?mid=133I9KVTF4jCpnkW1V7CLLZI-nUEHd74&ehbc=2E312F" ></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="problem" id="problem">
+        <div class="container">
+            <div class="section-title">
+                <h2>Problem & Opportunity</h2>
+            </div>
+            <div class="problem-cards">
+                <div class="card">
+                    <h3>Limited EV Charger Network</h3>
+                    <p>A lack of readily available charging stations in key locations, especially along highways and in rural areas, making long-distance travel in EVs challenging.</p>
+                </div>
+                <div class="card">
+                    <h3>Access Issues</h3>
+                    <p>Limited access to charging stations discourages EV adoption, creating a barrier to the growth of electric mobility in the region.</p>
+                </div>
+                <div class="card">
+                    <h3>Lack of Facilities</h3>
+                    <p>There are no wayside amenities available along with EV Chargers on Highways, making charging stops inconvenient for travelers.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solution" id="solution">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Solution</h2>
+            </div>
+            <div class="solution-content">
+                <h3>CLOSE THE GAP</h3>
+                <p>Development of a network of fast and slow public charging stations across key locations in Himachal Pradesh.</p>
+                <div class="solution-details">
+                    <div class="problem-cards">
+                        <div class="card" style="background-color: rgba(255,255,255,0.1); color: white;">
+                            <h3 style="color: white;">Target Audience</h3>
+                            <p>Tourists, EV Users (Public & Private)</p>
+                        </div>
+                        <div class="card" style="background-color: rgba(255,255,255,0.1); color: white;">
+                            <h3 style="color: white;">Easy To Use</h3>
+                            <p>Deployment of state-of-the-art EV charging technology.</p>
+                        </div>
+                        <div class="card" style="background-color: rgba(255,255,255,0.1); color: white;">
+                            <h3 style="color: white;">Implementation</h3>
+                            <p>Implementation through a Public-Private Partnership (PPP) model.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="market" id="market">
+        <div class="container">
+            <div class="section-title">
+                <h2>Market Opportunity</h2>
+            </div>
+            <div class="market-stats">
+                <div class="stat-box">
+                    <div class="stat-number">$206B</div>
+                    <h3>EV Market by 2030</h3>
+                    <p>India's EV market is projected to reach $206 billion by 2030, creating massive demand for charging infrastructure.</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">10M</div>
+                    <h3>EVs by 2030</h3>
+                    <p>Projected 10 million EVs on Indian roads by 2030, requiring extensive charging networks.</p>
+                </div>
+                <div class="stat-box">
+                    <div class="stat-number">1st</div>
+                    <h3>First To Market</h3>
+                    <p>Himachal Pradesh government promoting e-mobility initiatives with mandated use of electric vehicles by all officials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="business-model" id="business">
+        <div class="container">
+            <div class="section-title">
+                <h2>Business Model</h2>
+            </div>
+            <div class="model-grid">
+                <div class="model-item">
+                    <div class="model-icon">🏢</div>
+                    <h3>Government Support & Incentives</h3>
+                    <ul style="text-align: left;">
+                        <li>Land Allocation: 40-year concession period</li>
+                        <li>Financial Incentives: Capital subsidies</li>
+                        <li>Tax Benefits: GST exemption</li>
+                        <li>Policy Support: FAME scheme</li>
+                    </ul>
+                </div>
+                <div class="model-item">
+                    <div class="model-icon">💳</div>
+                    <h3>Direct Charging Fees</h3>
+                    <p>EV Charging fee using mobile app or smart card to be paid by all EV users</p>
+                </div>
+                <!-- <div class="model-item">
+                    <div class="model-icon">📱</div>
+                    <h3>Subscription Plans</h3>
+                    <p>Smart Card to use all available services at all HEVN stations</p>
+                </div> -->
+                <div class="model-item">
+                    <div class="model-icon">🤝</div>
+                    <h3>Advertising & Partnerships</h3>
+                    <ul style="text-align: left;">
+                        <li>Advertisement space</li>
+                        <li>EV Repair Shop</li>
+                        <li>Supermarket/Restaurant facilities</li>
+                        <li>Refreshment Kiosks</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="investment" id="investment">
+        <div class="container">
+            <div class="section-title">
+                <h2>Investment Opportunity</h2>
+            </div>
+            <div class="investment-details">
+                <div class="investment-item">
+                    <div class="investment-value">₹44 Cr</div>
+                    <h3>Total Project Cost</h3>
+                </div>
+                <!-- <div class="investment-item">
+                    <div class="investment-value">₹22 Cr</div>
+                    <h3>Investment Required</h3>
+                </div> -->
+                <div class="investment-item">
+                    <div class="investment-value">18%</div>
+                    <h3>Projected ROI</h3>
+                </div>
+                <div class="investment-item">
+                    <div class="investment-value">8 Years</div>
+                    <h3>Break-even Period</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="timeline" id="implementation">
+        <div class="container">
+            <div class="section-title">
+                <h2>Implementation Plan</h2>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Phase 1</h3>
+                        <p>Location assessment & land acquisition</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Phase 2</h3>
+                        <p>Procurement of EVSE & infrastructure setup</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Phase 3</h3>
+                        <p>Pilot launch in key urban centers along with wayside amenities</p>
+                    </div>
+                </div>
+                <div class="timeline-item right">
+                    <div class="timeline-content">
+                        <h3>Phase 4</h3>
+                        <p>Expansion to highways & rural hubs</p>
+                    </div>
+                </div>
+                <div class="timeline-item left">
+                    <div class="timeline-content">
+                        <h3>Phase 5</h3>
+                        <p>Scaling up to meet future demand</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="advantages">
+        <div class="container">
+            <div class="section-title">
+                <h2>Competitive Advantage</h2>
+            </div>
+            <div class="advantage-list">
+                <div class="advantage-item">
+                    <div class="advantage-icon">✓</div>
+                    <div>
+                        <h3>Proven Track Record</h3>
+                        <p>Design, manufacturing, supply and installation of around 5500 EV Chargers at PAN India.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">✓</div>
+                    <div>
+                        <h3>Technological Superiority</h3>
+                        <p>Technological superior and low-cost in-house developed EV charging solutions.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">✓</div>
+                    <div>
+                        <h3>Revenue Leadership</h3>
+                        <p>Highest earned revenue EVCS site(s) in Delhi in PPP model.</p>
+                    </div>
+                </div>
+                <div class="advantage-item">
+                    <div class="advantage-icon">✓</div>
+                    <div>
+                        <h3>Strategic Position</h3>
+                        <p>First-mover advantage in a high-growth market with government backing and scalable business model.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="competition">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Competition</h2>
+            </div>
+            <div class="quadrant">
+                <div class="quadrant-labels">
+                    <div class="x-label-left">INCONVENIENT</div>
+                    <div class="x-label-right">CONVENIENT</div>
+                    <div class="y-label-top">AFFORDABLE</div>
+                    <div class="y-label-bottom">EXPENSIVE</div>
+                    <div class="vertical-line"></div>
+                    <div class="horizontal-line"></div>
+                </div>
+                <div class="competitor hevn">HEVN</div>
+                <div class="competitor jio-bp">Jio-BP</div>
+                <div class="competitor statiq">Statiq</div>
+                <div class="competitor charge-zone">Charge Zone</div>
+                <div class="competitor glida">GLIDA</div>
+                <div class="competitor electriva">Electriva</div>
+            </div>
+        </div>
+    </section>
+
+
+    <section class="why-invest">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Invest?</h2>
+            </div>
+            <div class="invest-reasons">
+                <div class="reason">
+                    <h3>High-growth, Future-ready Industry</h3>
+                    <p>The EV market in India is projected for exponential growth, making this an optimal time for investment.</p>
+                </div>
+                <div class="reason">
+                    <h3>Strong Government Support</h3>
+                    <p>Benefit from policy alignment and government incentives designed to promote EV infrastructure.</p>
+                </div>
+                <div class="reason">
+                    <h3>Sustainable and Profitable Business Model</h3>
+                    <p>Multiple revenue streams and long-term concession period ensure sustainable profitability.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about" id="about">
+        <div class="container">
+            <div class="section-title">
+                <h2>About Us</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>HEVN is a subsidiary of <a href="https://www.evitpl.com" target="_blank">EVI Technologies</a> (An IIT Delhi alumina company). At HEVN, we develop Electric Vehicle (EV) charging stations at various locations in Himachal Pradesh by integrating renewable energy solutions along with wayside facilities.</p>
+                    <p>Our mission is to create a comprehensive network of charging infrastructure to support the rapidly growing EV market in India, with a special focus on the unique geographical challenges of Himachal Pradesh.</p>
+                </div>
+                <div class="about-image">
+                    <img src="./Reference Images HP EV canopy//evi.jpg" alt="HEVN EV Charging Station">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="contact" id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>Email</h3>
+                    <p><a href="mailto:vikrant@evitpl.com">vikrant@evitpl.com</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Website</h3>
+                    <p><a href="https://hevn.static.domains/" target="_blank">hevn</a></p>
+                </div>
+                <div class="contact-item">
+                    <h3>Phone</h3>
+                    <p><a href="tel:+919910405350">+91 99104-05350</a></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Himachal EV Network Pvt Ltd (HEVN). All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Animation for stats on scroll
+        const statNumbers = document.querySelectorAll('.stat-number');
+        let animated = false;
+        
+        function checkScroll() {
+            if (animated) return;
+            
+            const triggerBottom = window.innerHeight * 0.8;
+            
+            statNumbers.forEach(statNumber => {
+                const boxTop = statNumber.getBoundingClientRect().top;
+                
+                if (boxTop < triggerBottom) {
+                    animated = true;
+                    animateStats();
+                }
+            });
+        }
+        
+        function animateStats() {
+            statNumbers.forEach(statNumber => {
+            const target = parseFloat(statNumber.innerText.replace(/[^0-9.]/g, ''));
+            const prefix = statNumber.innerText.match(/^[^\d]+/);
+            const suffix = statNumber.innerText.match(/[^\d]+$/);
+            let current = 0;
+            const increment = target / 200; // 200 steps for 2 seconds
+            
+            const interval = setInterval(() => {
+                current += increment;
+                if (current >= target) {
+                statNumber.innerText = `${prefix ? prefix[0] : ''}${target}${suffix ? suffix[0] : ''}`;
+                clearInterval(interval);
+                } else {
+                statNumber.innerText = `${prefix ? prefix[0] : ''}${Math.floor(current)}${suffix ? suffix[0] : ''}`;
+                }
+            }, 10); // 10ms per step
+            });
+        }
+        
+        window.addEventListener('scroll', checkScroll);
+
+        // Animation for timeline items on scroll
+        const timelineItems = document.querySelectorAll('.timeline-item');
+
+        function checkTimelineScroll() {
+            const triggerBottom = window.innerHeight * 0.8;
+
+            timelineItems.forEach(item => {
+                const boxTop = item.getBoundingClientRect().top;
+
+                if (boxTop < triggerBottom) {
+                    item.classList.add('show');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', checkTimelineScroll);
+    </script>
+</body>
+</html>
