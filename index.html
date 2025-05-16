@@ -182,7 +182,8 @@
             align-items: center;
             color: white;
             text-align: center;
-            margin-top: 60px;
+            margin-top: 20px;
+           
         }
         
         .hero-content {
@@ -630,22 +631,31 @@
         }
         
         .contact {
-            background-color: white;
+            background-color: var(--primary);
+            color: white;
+        }
+        .contact .section-title h2 {
+            color: white;
         }
         
         .contact-info {
-            max-width: 600px;
+            display:flex;
             margin: 0 auto;
-            text-align: center;
+            justify-content: center;
+            align-items: center;
+            column-gap:5%
+            
         }
         
         .contact-item {
-            margin-bottom: 1rem;
+            align-items: center;
+            justify-items: center;
         }
         
         .contact-item a {
-            color: var(--primary);
+            color: white;
             text-decoration: none;
+            
         }
         
         footer {
@@ -656,6 +666,14 @@
         }
         
         @media (max-width: 768px) {
+            .contact-info {
+            display:block;
+            
+            text-align: center;
+            margin-top: 10px;
+
+            
+        }
             .nav-links {
                 display: none;
             }
@@ -823,6 +841,14 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
         }
+        .Details_location{
+            text-align: center;
+            margin-top: 10px;
+            margin-bottom: 10px;
+            margin-top: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            
+        }
 
         .map-container iframe {
             position: absolute;
@@ -841,7 +867,7 @@
                 <div class="logo"><a href="#header"> H<span>EV</span>N </a></div>
                 <ul class="nav-links">
                     <li><a href="#about">About</a></li>
-                    <li><a href="#locations">Locations</a></li>
+                    <li><a href="./locations.html">Locations</a></li>
                     <li><a href="#business">Business Model</a></li>
                     <li><a href="#investment">Investment</a></li>
                     <li><a href="#contact">Contact</a></li>
@@ -855,20 +881,20 @@
             <div class="hero-content">
                 <h2>Powering the Future of 
                     EV Charging in Himachal Pradesh!
-                    </h2>
-                <a href="#investment" class="btn">Investment Opportunity</a>
+                </h2>
+              
             </div>
             <div class="sliding-background">
                 <img class="first" src="image-1.jpg" alt="">
                 <img src="./Reference Images HP EV canopy/1.webp" alt="">
                 <img src="./Reference Images HP EV canopy/2.webp" alt="">
+                <img src="./Reference Images HP EV canopy/9.webp" alt="">
                 <img src="./Reference Images HP EV canopy/10.webp" alt="">
                 <img src="./Reference Images HP EV canopy/11.webp" alt="">
                 <img src="./Reference Images HP EV canopy/12.webp" alt="">
                 <img src="./Reference Images HP EV canopy/14.webp" alt="">
                 <img src="./Reference Images HP EV canopy/19.webp" alt="">
                 <img src="./Reference Images HP EV canopy/20.webp" alt="">
-                <img src="./Reference Images HP EV canopy/9.webp" alt="">
                 <img src="./Reference Images HP EV canopy/22.webp" alt="">
                 <img src="./Reference Images HP EV canopy/24.webp" alt="">
             </div>
@@ -880,10 +906,15 @@
         <div class="container">
             <div class="section-title">
                 <h2>Corridor Locations</h2>
+            </div>  
+            <div class="Details_location">
+                <h3>
+                <p><a href="/locations.html">Details >></a></p></h3>
             </div>
             <div class="map-container">
                 <iframe src="https://www.google.com/maps/d/embed?mid=133I9KVTF4jCpnkW1V7CLLZI-nUEHd74&ehbc=2E312F" ></iframe>
             </div>
+          
         </div>
     </section>
 
@@ -1146,26 +1177,52 @@
         </div>
     </section>
 
+
     <section class="contact" id="contact">
-        <div class="container">
-            <div class="section-title">
-                <h2>Contact Us</h2>
+            <div class="container">
+                <div class="section-title">
+                    <h2>Contact Us</h2>
+                </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
+                                <polyline points="22,6 12,13 2,6"></polyline>
+                            </svg>
+                        </div>
+                        <div class="contact-content">
+                            <h3>
+                            <p><a href="mailto:vikrant@evitpl.com">Email</a></p></h3>
+                        </div>
+                    </div>
+                   
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+                            </svg>
+                        </div>
+                        <div class="contact-content">
+                            <h3>
+                            <p><a href="tel:+919910405350">Phone</a></p></h3>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="12" cy="12" r="10"></circle>
+                                <path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path>
+                                <line x1="12" y1="17" x2="12.01" y2="17"></line>
+                            </svg>
+                        </div>
+                        <div class="contact-content">
+                            <h3>
+                            <p><a href="https://forms.gle/tcRVm6VBK2KGRLaP9" target="_blank">Query Us</a></p></h3>
+                        </div>
+                    </div>
+                </div>
             </div>
-            <div class="contact-info">
-                <div class="contact-item">
-                    <h3>Email</h3>
-                    <p><a href="mailto:vikrant@evitpl.com">vikrant@evitpl.com</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>Website</h3>
-                    <p><a href="https://hevn.static.domains/" target="_blank">hevn</a></p>
-                </div>
-                <div class="contact-item">
-                    <h3>Phone</h3>
-                    <p><a href="tel:+919910405350">+91 99104-05350</a></p>
-                </div>
-            </div>
-        </div>
     </section>
 
     <footer>
