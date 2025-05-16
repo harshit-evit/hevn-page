@@ -232,7 +232,7 @@
         .site-image {
             width: 100%;
             border-radius: 5px;
-            height: 200px;
+            overflow: auto;
             object-fit: cover;
         }
 
@@ -683,9 +683,19 @@
                 
                 // Scroll to details
                 document.getElementById('site-details').scrollIntoView({ behavior: 'smooth' });
+                close_active()
             });
         });
 
+        function close_active() {
+            document.querySelectorAll('.corridor-btn').forEach(btn => {
+            
+                const dropdown = this.parentElement;
+                dropdown.classList.toggle('active');
+            }
+            )
+        
+        }
         // Toggle corridor dropdowns on mobile
         document.querySelectorAll('.corridor-btn').forEach(btn => {
             btn.addEventListener('click', function() {
