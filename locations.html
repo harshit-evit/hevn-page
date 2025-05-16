@@ -138,6 +138,8 @@
             box-shadow: 0 8px 16px rgba(0,0,0,0.1);
             border-radius: 0 0 5px 5px;
             z-index: 100;
+            
+            
         }
         
         .corridor-dropdown:hover .dropdown-content,
@@ -170,7 +172,7 @@
             border-radius: 10px;
             box-shadow: 0 5px 15px rgba(0,0,0,0.1);
             padding: 30px;
-            margin-top: 20px;
+            margin-top: 100px;
             display: none;
         }
         
@@ -243,6 +245,7 @@
             
             .corridor-dropdown {
                 width: 100%;
+               
             }
             
             .site-detail-header {
@@ -418,8 +421,8 @@
                         </div>
                     </div>
                     <div class="site-images">
-                        <img src="/api/placeholder/400/300" alt="Site Image 1" class="site-image" id="site-image-1">
-                        <img src="/api/placeholder/400/300" alt="Site Image 2" class="site-image" id="site-image-2">
+                        <img src="" alt="Site Image 1" class="site-image" id="site-image-1">
+                        <img src="" alt="Site Image 2" class="site-image" id="site-image-2">
                     </div>
                 </div>
             </div>
@@ -663,7 +666,8 @@
         const location_folder= './Reference Images HP EV canopy/locations'
         // Site selection event listeners
         document.querySelectorAll('.site-option').forEach(option => {
-            option.addEventListener('click', function() {
+            option.addEventListener('click', function(event) {
+                event.stopPropagation()
                 const siteId = this.getAttribute('data-site');
                 const site = siteData[siteId];
                 const corridor_folder_name = site.corridor =='CORRIDOR-1'?'corridor 1':'corridor 2'
@@ -689,20 +693,19 @@
 
         function close_active() {
             document.querySelectorAll('.corridor-btn').forEach(btn => {
-            
-                const dropdown = this.parentElement;
-                dropdown.classList.toggle('active');
+                const dropdown = btn.parentElement;
+                dropdown.classList.remove('active');
             }
             )
-        
         }
         // Toggle corridor dropdowns on mobile
         document.querySelectorAll('.corridor-btn').forEach(btn => {
             btn.addEventListener('click', function() {
-                const dropdown = this.parentElement;
+                const dropdown = btn.parentElement;
                 dropdown.classList.toggle('active');
             });
         });
-    </script>
+
+            </script>
 </body>
 </html>
